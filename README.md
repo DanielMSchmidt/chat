@@ -21,12 +21,17 @@ Start with `npm start` and
 
 A simple go server handling the incoming websocket connections
 
-### Installation
-
-Run `glide install` to install the dependencies
-
 ### Usage
 
+
+#### Docker
+
+Make sure your docker version is higher than `17.05` as we use multi-staged docker builds.
+Run `docker build . -t chat-server` to build the image and `docker run chat-server` to run it.
+
+#### Traditional
+
+Run `glide install` to install the dependencies.
 Run `go build .` to build the binary and `./server` to start it
 
 ### Contributing

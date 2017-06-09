@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -23,6 +24,7 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	flag.Parse()
+	fmt.Println("Starting the server")
 	hub := newHub()
 	go hub.run()
 	http.HandleFunc("/", serveHome)
