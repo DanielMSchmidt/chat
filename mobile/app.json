@@ -1,5 +1,7 @@
 {
+  "name": "chat",
+  "displayName": "chat",
   "expo": {
-    "sdkVersion": "17.0.0"
+      "sdkVersion": "17.0.0"
   }
 }
