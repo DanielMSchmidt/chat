@@ -1,14 +1,10 @@
-/**
- * Created by david on 09.06.17.
- */
 import React from 'react';
-import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 
 export default class ChatScreen extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {text: ''};
         this.onPress = this.onPress.bind(this);
     }
 
@@ -17,7 +13,6 @@ export default class ChatScreen extends React.Component {
     }
 
     render() {
-
         return (
             <View style={styles.container}>
                 <Text> Your chat.</Text>
