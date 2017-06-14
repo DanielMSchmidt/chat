@@ -1,8 +1,5 @@
-/**
- * Created by david on 09.06.17.
- */
 import React from 'react';
-import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 
 export default class LoginScreen extends React.Component {
 
@@ -25,6 +22,7 @@ export default class LoginScreen extends React.Component {
                     style={{height: 40, width: 200}}
                     placeholder="Username"
                     onChangeText={(text) => this.setState({text})}
+                    onSubmitEditing={this.onPress}
                 />
                 <Button title="Start"
                         onPress={this.onPress} />

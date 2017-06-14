@@ -13,7 +13,8 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             username: '',
-            conn: null
+            conn: null,
+            messages: [],
         };
         this.onLogin = this.onLogin.bind(this);
         this.onSubmitMessage = this.onSubmitMessage.bind(this);
@@ -30,6 +31,12 @@ export default class App extends React.Component {
 
         conn.onerror = () => {
             Alert.alert('Connection Error', 'It was not possible to connect to ' + this.props.websocket_addr)
+        };
+
+        conn.onmessage = (message) => {
+          this.setState({
+              messages: this.state.messages.concat({key: message.data})
+          });
         }
     }
 
@@ -37,14 +44,17 @@ export default class App extends React.Component {
         this.state.conn.send(message);
     }
 
-  render() {
+    render() {
         if(this.state.username === ''){
             return (
                 <LoginScreen onPress={this.onLogin}/>
             );
         }
         return (
-            <ChatScreen onPress={this.onSubmitMessage}/>
+            <ChatScreen
+                username={this.state.username}
+                messages={this.state.messages}
+                onPress={this.onSubmitMessage}/>
         )
-  }
+    }
 }
